@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 import logo from '../../images/topbackground.jpg'
 export const Container = styled.header`
+@media(max-width: 760px){
+  overflow: hidden;
+  width: 567px;
+}
 `
 export const BackgroundTop = styled.div`
 background-image: url(${logo});
@@ -11,6 +15,7 @@ display: flex;
 `
 export const Title = styled.h1`
 color: whitesmoke;
+user-select: none;
 margin-left: auto;
 margin-right: auto;
 `
@@ -21,6 +26,9 @@ display: flex;
 z-index: 2;
 top: 0;
 width: (100vw - 20px);
+@media(max-width: 760px){
+  width: 102%;
+}
 padding-left: 20px;
 height: 100%;
 box-shadow: 0 1px 0 #fca311;
@@ -41,13 +49,14 @@ padding: 8px 0px;
 font-size: 16px;
 font-weight: 500;
 padding: 10px;
-z-index: 1;
+z-index: 2;
 :hover{
   color: whitesmoke;
   background-color: #262626;
 }
 `
 export const ItemTitle = styled.span`
+user-select: none;
 `
 export const Option = styled.div`
 cursor: pointer;
@@ -55,7 +64,7 @@ padding: 15px 35px;
 :hover{
       background-color: #ff9e00;
       ${DropdownItem}{
-        display: flex;
+        display: block;
         text-align: center;
       }
     }

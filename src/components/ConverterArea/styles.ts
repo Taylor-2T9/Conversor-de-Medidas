@@ -20,14 +20,19 @@ display: flex;
 flex-direction: column;
 `
 export const Measure = styled.label`
+user-select: none;
 position: absolute;
 margin-left: 60px;
 top: 290px;
+@media(max-width: 760px){
+  width: 130px;
+}
 font-size: 16px;
 color: #c9c9c9;
 font-weight: 500;
 `
 export const Equal = styled.span`
+user-select: none;
 font-size: 20px;
 color: #c9c9c9;
 font-weight: 500;
@@ -54,6 +59,7 @@ margin-right: auto;
 `
 export const ConfirmButton = styled.button`
   cursor: pointer;
+  user-select: none;
   background-color: #ff9d2e;
   border: 1px unset #2b2b2b;
   border-radius: 5px;

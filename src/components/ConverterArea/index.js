@@ -1,20 +1,27 @@
-import React from 'react'
+import { useRef, useEffect } from 'react'
 import options from './options'
 import * as Styles from './styles'
 
 const ConverterArea = ({
     chosenMeasure
 }) => {
-    const inputRef = React.useRef()
-    const resultRef = React.useRef()
-    React.useEffect(() => {
+    const inputRef = useRef()
+    const resultRef = useRef()
+    useEffect(() => {
         resultRef.current.value = null
         inputRef.current.value = null
     }, [chosenMeasure])
     return (
-        <Styles.Container>
+        <Styles.Container onSubmit={(ev) => {
+            ev.preventDefault()
+        }}>
             <Styles.InputsArea>
-                <Styles.Measure>{chosenMeasure?.origin.name || 'Centímetros'}</Styles.Measure>
+                <Styles.Measure>
+                    {
+                        `${chosenMeasure?.origin.name} (${chosenMeasure?.origin.abrev})`
+                        || 'Centímetros (cm)'
+                    }
+                </Styles.Measure>
                 <Styles.InputArea>
                     <Styles.Input
                         placeholder={'Digite o valor aqui'}
@@ -23,8 +30,8 @@ const ConverterArea = ({
                         onInput={(ev) => {
                             if (ev.target.value) {
                                 chosenMeasure ?
-                                resultRef.current.value = parseInt(ev.target.value) / chosenMeasure.origin.equivalentValue
-                                : resultRef.current.value = parseInt(ev.target.value) / 100
+                                    resultRef.current.value = Number((parseInt(ev.target.value) / chosenMeasure?.origin.equivalentValue).toPrecision(8))
+                                    : resultRef.current.value = parseInt(ev.target.value) / 100
                             } else {
                                 resultRef.current.value = 0
                             }
@@ -32,12 +39,17 @@ const ConverterArea = ({
                 </Styles.InputArea>
                 <Styles.Equal> = </Styles.Equal>
                 <Styles.InputArea>
-                    <Styles.Measure>{chosenMeasure?.final.name || 'Metros'}</Styles.Measure>
+                    <Styles.Measure>
+                        {
+                            `${chosenMeasure?.final.name} (${chosenMeasure?.final.abrev})`
+                            || 'Metros (m)'
+                        }
+                    </Styles.Measure>
                     <Styles.Input placeholder={'Resultado'} disabled={true} ref={resultRef} />
                 </Styles.InputArea>
             </Styles.InputsArea>
             <Styles.ButtonArea>
-                <Styles.ConfirmButton>
+                <Styles.ConfirmButton title={'Inútil, mas bonito.'}>
                     Converter
                 </Styles.ConfirmButton>
             </Styles.ButtonArea>

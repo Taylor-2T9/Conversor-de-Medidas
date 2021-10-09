@@ -11,7 +11,11 @@ margin-top: -35px;
 `
 export const Options = styled.div`
 padding-left: 110px;
-margin-top: 65px;
+margin-top: 38px;
+@media(max-width: 760px){
+    margin-top: 65px;
+    justify-content: center;
+}
 width: 35%;
 display: flex;
 flex-direction: row;

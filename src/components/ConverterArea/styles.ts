@@ -21,9 +21,8 @@ flex-direction: column;
 `
 export const Measure = styled.label`
 user-select: none;
-position: absolute;
-margin-left: 60px;
-top: 290px;
+top: 15px;
+padding-left: 40px;
 @media(max-width: 760px){
   width: 130px;
 }
@@ -36,7 +35,7 @@ user-select: none;
 font-size: 20px;
 color: #c9c9c9;
 font-weight: 500;
-margin-top: 24px;
+margin-top: 44px;
 `
 export const Input = styled.input`
 padding:15px;

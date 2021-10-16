@@ -17,22 +17,20 @@ const Header = ({
             <Styles.HomeBar>
                 {options.map((item, key) => (
                     <Styles.Option key={key}>
-                        <Styles.Link>
-                            {item.title}
-                            <Styles.Dropdown>
-                                {item.suboptions.map((item, key) => (
-                                    <Styles.DropdownItem key={key}
-                                        onClick={() => {
-                                            setChosenMeasure({
-                                                origin: item.origin,
-                                                final: item.final
-                                            })
-                                        }}>
-                                        {item.title}
-                                    </Styles.DropdownItem>
-                                ))}
-                            </Styles.Dropdown>
-                        </Styles.Link>
+                        {item.title}
+                        <Styles.Dropdown>
+                            {item.suboptions.map((item, key) => (
+                                <Styles.DropdownItem key={key}
+                                    onClick={() => {
+                                        setChosenMeasure({
+                                            origin: item.origin,
+                                            final: item.final
+                                        })
+                                    }}>
+                                    {item.title}
+                                </Styles.DropdownItem>
+                            ))}
+                        </Styles.Dropdown>
                     </Styles.Option>
                 ))}
             </Styles.HomeBar>

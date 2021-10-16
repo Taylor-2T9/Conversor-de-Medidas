@@ -16,13 +16,13 @@ const ConverterArea = ({
             ev.preventDefault()
         }}>
             <Styles.InputsArea>
+                    <Styles.InputArea>
                 <Styles.Measure>
                     {
                         `${chosenMeasure?.origin.name} (${chosenMeasure?.origin.abrev})`
                         || 'Centímetros (cm)'
                     }
                 </Styles.Measure>
-                <Styles.InputArea>
                     <Styles.Input
                         placeholder={'Digite o valor aqui'}
                         type={'number'}
